@@ -1,4 +1,5 @@
 [.] Create directory structure. ✅ 
+[.] Git setup. ✅ 
 [.] Create a NPM project and install all dependencies. ✅ 
 	- dependencies
 	   - Express
@@ -15,3 +16,10 @@
 [.] Create order view with table for customers and admin.
 [.] Create order single page with status.
 [.] Create login page with routes.
+[.] Create register page with routes.
+[.] Build register CRUD.
+	- dependencies express-flash express-session cookie-parse dotenv.
+	- Status code.
+	- Database connection. Dependencies mongoose.
+[.] Install laravel Mix.
+	- Setup JS and SCSS.
