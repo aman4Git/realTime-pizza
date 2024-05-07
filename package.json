@@ -1,0 +1,8 @@
+{
+  "name": "PizzaStream",
+  "version": "1.0.0",
+  "description": "This is our real time Pizza app.",
+  "main": "index.js",
+  "author": "Aman Mishra",
+  "license": "MIT"
+}
