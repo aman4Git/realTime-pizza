@@ -7,6 +7,8 @@
 	- Dev dependencies
 	   - Nodemon
 [.] Create express server - Create a server.js file. ✅ 
+[.] Install laravel Mix. ✅ 
+	- Setup JS and SCSS.
 [.] Create home page using HTML and CSS.
 	- Include tailwind css.
 [.] Create a cart page,
@@ -21,5 +23,3 @@
 	- dependencies express-flash express-session cookie-parse dotenv.
 	- Status code.
 	- Database connection. Dependencies mongoose.
-[.] Install laravel Mix.
-	- Setup JS and SCSS.
