@@ -9,8 +9,8 @@
 [.] Create express server - Create a server.js file. ✅ 
 [.] Install laravel Mix. ✅ 
 	- Setup JS and SCSS.
+[.] Install Tailwind CSS. ✅ 
 [.] Create home page using HTML and CSS.
-	- Include tailwind css.
 [.] Create a cart page,
 	- Order summary section.
 	- Empty cart section.
