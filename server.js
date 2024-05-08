@@ -18,5 +18,5 @@ app.set('view engine', 'ejs');
 
 //Start the server
 app.listen(PORT, () => {
-    console.log(`Server listening on port: ${PORT}`);
+    console.log(`Server listening on localhost:${PORT}`);
 });
