@@ -14,6 +14,7 @@
 [.] Create a cart page. ✅
 	- Order summary section.
 	- Empty cart section.
+[.] Create Log in and Register page using HTML and CSS. ✅
 [.] Create order controller and link it in server.js file.
 [.] Create order view with table for customers and admin.
 [.] Create order single page with status.
