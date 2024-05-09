@@ -11,7 +11,7 @@
 	- Setup JS and SCSS.
 [.] Install Tailwind CSS. ✅ 
 [.] Create home page using HTML and CSS. ✅
-[.] Create a cart page,
+[.] Create a cart page. ✅
 	- Order summary section.
 	- Empty cart section.
 [.] Create order controller and link it in server.js file.
