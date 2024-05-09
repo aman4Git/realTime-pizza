@@ -7,14 +7,16 @@ const expressLayout = require('express-ejs-layouts');
 
 //Assets
 app.use(express.static('public'))
-app.get('/', (req, res) => {
-    res.render('home');
-})
 
 //Set template engine
 app.use(expressLayout);
 app.set('views',path.join(__dirname, '/resources/views'));
 app.set('view engine', 'ejs');
+
+//Routes for home page
+app.get('/', (req, res) => {
+    res.render('home');
+})
 
 //Start the server
 app.listen(PORT, () => {
