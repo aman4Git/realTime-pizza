@@ -13,24 +13,8 @@ app.use(expressLayout);
 app.set('views',path.join(__dirname, '/resources/views'));
 app.set('view engine', 'ejs');
 
-//Routes for home page
-app.get('/', (req, res) => {
-    res.render('home');
-})
-
-//Routes for cart page
-app.get('/cart', (req, res) => {
-    res.render('customer/cart');
-})
-
-//Auth routes
-app.get('/login', (req, res) => {
-    res.render('auth/login');
-})
-
-app.get('/register', (req, res) => {
-    res.render('auth/register');
-})
+//Call Routes.
+require('./routes/web')(app);
 
 //Start the server
 app.listen(PORT, () => {
