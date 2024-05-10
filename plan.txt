@@ -16,7 +16,7 @@
 	- Empty cart section.
 [.] Create Log in and Register page using HTML and CSS. ✅
 [.] Move Routes to routes file. ✅
-[.] Create dedicated controllers.
+[.] Create dedicated controllers. ✅
 [.] Add to cart functionality.
 	- Connect to MongoDB.
 	- Use connect-mongo for session store.
