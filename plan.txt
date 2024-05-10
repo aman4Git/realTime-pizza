@@ -17,13 +17,14 @@
 [.] Create Log in and Register page using HTML and CSS. ✅
 [.] Move Routes to routes file. ✅
 [.] Create dedicated controllers. ✅
-[.] Add to cart functionality.
-	- Connect to MongoDB.
-	- Use connect-mongo for session store.
+[.] Connect to MongoDB. ✅
 		- Dependencies.
-		- Mongoose, express-session, connect-mongo, and dotenv.
+		- Mongoose, connect-mongo, and .env .
+[.] Add to cart functionality.
+	- Use connect-mongo for session store.
 	- Axios to send ajax request.
-	- Install notification library.  
+	- Install notification library.
+	- express-session.  
 [.] Create order controller and link it in server.js file.
 [.] Create order view with table for customers and admin.
 [.] Create order single page with status.
