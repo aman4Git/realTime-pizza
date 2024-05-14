@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3300;
@@ -5,7 +6,9 @@ const ejs = require('ejs');
 const path = require('path');
 const expressLayout = require('express-ejs-layouts');
 const mongoose = require('mongoose');
-require("dotenv").config();
+const session = require('express-session');
+const flash = require('express-flash');
+const MongoDbStore = require('connect-mongo')(session);
 
 //Database configuration
 const url = process.env.DATABASE_CONNECTION_STRING;
@@ -25,6 +28,23 @@ connection.on('error', (err) => {
 connection.once('open', () => {
     console.log('MongoDB database connection established successfully');
 });
+
+//Session store
+let mongoStore = new MongoDbStore ({
+    mongooseConnection: connection,
+    collection:'sessions',
+})
+
+//Session configuration
+app.use(session({
+    secret: process.env.COOKIE_SECRET,
+    resave: false,
+    store: mongoStore,
+    saveUninitialized: false,
+    cookie: {maxAge: 1000 * 60 * 60 * 24} //24 hours
+}));
+
+app.use(flash());
 
 //Assets
 app.use(express.static('public'))
