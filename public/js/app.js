@@ -9482,9 +9482,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var addToCart = document.querySelectorAll('.add-to-cart');
 var cartCounter = document.querySelector('#cartCounter');
+
+//Update cart
 function updateCart(pizza) {
   axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/update-cart', pizza).then(function (res) {
+    //Cart counter
     cartCounter.innerText = res.data.totalQty;
+
+    //Success & Error messages pop up
     new noty__WEBPACK_IMPORTED_MODULE_1___default.a({
       type: "success",
       timeout: 1000,
@@ -9493,6 +9498,7 @@ function updateCart(pizza) {
       text: "Item added to cart!"
     }).show();
   })["catch"](function (err) {
+    //Success & Error messages pop up
     new noty__WEBPACK_IMPORTED_MODULE_1___default.a({
       type: "error",
       timeout: 1000,
@@ -9502,6 +9508,8 @@ function updateCart(pizza) {
     }).show();
   });
 }
+
+//Add to cart
 addToCart.forEach(function (btn) {
   btn.addEventListener('click', function (e) {
     var pizza = JSON.parse(btn.dataset.pizza);
