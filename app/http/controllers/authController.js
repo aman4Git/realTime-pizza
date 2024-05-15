@@ -112,7 +112,17 @@ function authController()
 
             })(req, res, next);
 
+        },
+
+        logout(req, res) {
+            req.logout((err) => {
+                if (err) {
+                    return next(err); 
+                }
+                res.redirect('/login');
+            });
         }
+        
 
     }
 }
