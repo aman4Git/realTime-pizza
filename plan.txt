@@ -38,13 +38,32 @@
 	- Axios to send ajax request.  ✅
 	- Install notification library.  ✅
 
-[.] Create order controller and link it in server.js file.
-[.] Create order view with table for customers and admin.
-[.] Create order single page with status.
-[.] Create login page with routes.
-[.] Create register page with routes.
+[.] Create login page with routes.  ✅
+[.] Create register page with routes.  ✅
 
-[.] Build register CRUD.
+[.] Build register CRUD. 👷🏼
 	- dependencies express-flash express-session cookie-parse dotenv.
 	- Status code.
 	- Database connection. Dependencies mongoose.
+
+[.] Build Login using passport.
+	- Install dependencies passport passport-local express-session.
+
+[.] Create order controller and link it in server.js file.
+[.] Create order view with table for customers and admin.
+[.] Create order single page with status.
+[.] Make order on Cart page.
+[.] Place order functionality.
+[.] Order tracker.
+	- Dependencies moment
+[.] Socket connection.
+	- Dependencies socket.io
+[.] Build project for deployment.
+
+
+
+
+
+
+
+
