@@ -1,4 +1,4 @@
-function guest (req, res, next) {
+function authMiddleware (req, res, next) {
 
     // Check if user is authenticated
     if(!req.isAuthenticated()){
@@ -9,4 +9,4 @@ function guest (req, res, next) {
     return res.redirect('/');
 }
 
-module.exports = guest;
+module.exports = authMiddleware;
