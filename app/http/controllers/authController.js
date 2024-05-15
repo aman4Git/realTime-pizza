@@ -78,6 +78,20 @@ function authController()
         
         //Login a user
         userLogin(req, res, next){
+            
+            //req body data
+            const {email, password } = req.body;
+
+             //validate required
+            if( !email || !password ){
+ 
+                //flash message
+                req.flash('error', 'All fields are required');
+
+                //redirect to register page
+                return res.redirect('/login');
+            }
+
             passport.authenticate('local', (err, user, info) =>{
 
                 //If error
