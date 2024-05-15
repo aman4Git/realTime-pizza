@@ -1,5 +1,6 @@
 const User = require('../../models/user');
 const bcrypt = require('bcrypt')
+const passport = require('passport');
 
 function authController()
 {
@@ -74,6 +75,44 @@ function authController()
         login(req, res){
             res.render('auth/login')
         },
+        
+        //Login a user
+        userLogin(req, res, next){
+            passport.authenticate('local', (err, user, info) =>{
+
+                //If error
+                if(err){
+                    
+                    //flash message
+                    req.flash('error', info.message );
+
+                    return next(err);
+                }
+
+                //check if user exists
+                if(!user){
+
+                    //flash message
+                    req.flash('error', info.message );
+
+                    return res.redirect('/login');
+                }
+
+                //login user
+                req.logIn(user, (err) =>{
+                    if(err){
+
+                        //flash message
+                        req.flash('error', info.message );
+                        return next(err);
+                    }
+
+                    return res.redirect('/');
+                });
+
+            })(req, res, next);
+
+        }
 
     }
 }
