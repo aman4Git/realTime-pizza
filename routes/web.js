@@ -19,9 +19,10 @@ function initRoutes(app){
     //Cart related routes
     app.get('/cart', cartController().index);
     app.post('/update-cart', cartController().update);
-
-    //Orders related routes
-    app.post('/orders', orderController().store);
+    
+    //Customer related routes
+    app.post('/orders', authMiddleware, orderController().store);
+    app.get('/customer/orders', authMiddleware, orderController().index);
 
 
 }
