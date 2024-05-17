@@ -4,6 +4,12 @@ const passport = require('passport');
 
 function authController()
 {
+
+    //Redirect to the relevant user page
+    const _getRedirectUrl = (req) =>{
+        return req.user.role === 'admin' ? '/admin/orders' : '/customer/orders';
+    }
+
     return {
 
         //Function to handle & render Register page.
@@ -121,7 +127,7 @@ function authController()
                         return next(err);
                     }
 
-                    return res.redirect('/');
+                    return res.redirect(_getRedirectUrl(req));
                 });
 
             })(req, res, next);
