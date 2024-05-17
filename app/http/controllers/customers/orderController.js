@@ -28,7 +28,12 @@ function orderController()
            order.save().then(result =>{
 
             req.flash('success', 'Order placed successfully!')
-            return res.redirect('/');
+
+            //Delete cart data after order is placed
+            delete req.session.cart
+
+            //redirect to orders page
+            return res.redirect('/customer/orders');
 
            }).catch(err =>{
 
