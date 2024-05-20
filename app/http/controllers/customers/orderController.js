@@ -50,7 +50,23 @@ function orderController()
 
             //Return orders
             return res.render('customer/orders', { orders: orders, moment: moment});
-        }
+        },
+
+        async show(req, res){
+
+            //find order by id
+            const order = await Order.findById(req.params.id);
+
+            //If Authorized user
+            if(req.user._id.toString() === order.customerId.toString())
+            {    
+                return res.render('customer/singleOrder', { order: order});
+            }
+
+            //Else return to home page
+            return res.redirect('/');
+
+        },
     }
 }
 
