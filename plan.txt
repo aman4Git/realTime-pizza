@@ -54,6 +54,7 @@
 [.] Show all my orders on customer orders page. ✅
 [.] Show orders on admin orders page. ✅
 [.] Place order functionality. ✅
+[.] Change order status. ✅
 [.] Create order single page with status.
 [.] Order tracker.
 	- Dependencies moment
