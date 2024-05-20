@@ -31574,6 +31574,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
 /* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(noty__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -31624,6 +31627,42 @@ if (alertMsg) {
   }, 2000);
 }
 Object(_admin__WEBPACK_IMPORTED_MODULE_2__["initAdmin"])();
+
+//Change order status
+//Get statuses
+var statuses = document.querySelectorAll('.status-line');
+
+//Get order details
+var hiddenInput = document.querySelector('#hiddenInput');
+var order = hiddenInput ? hiddenInput.value : null;
+order = JSON.parse(order);
+
+//Create time element
+var time = document.createElement('small');
+function updateStatus(order) {
+  var stepCompleted = true;
+  statuses.forEach(function (status) {
+    var dataProp = status.dataset.status;
+
+    //Update status
+    if (stepCompleted) {
+      status.classList.add('step-completed');
+    }
+
+    //Update next status
+    if (dataProp === order.status) {
+      stepCompleted = false;
+
+      //Create time element
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_3___default()(order.updatedAt).format('hh:mm A');
+      status.appendChild(time);
+      if (status.nextElementSibling) {
+        status.nextElementSibling.classList.add('current');
+      }
+    }
+  });
+}
+updateStatus(order);
 
 /***/ }),
 
