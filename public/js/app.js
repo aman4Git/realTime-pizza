@@ -31695,7 +31695,6 @@ updateStatus(order);
 //Client side socket connection
 
 var socket = io();
-Object(_admin__WEBPACK_IMPORTED_MODULE_2__["initAdmin"])(socket);
 
 //join room by name (name: order_dkfsf87897kjdfjj).
 //Check if order exists
@@ -31707,6 +31706,7 @@ if (order) {
 //Add new orders in admin order list page in real time
 var adminAreaPath = window.location.pathname;
 if (adminAreaPath.includes('admin')) {
+  Object(_admin__WEBPACK_IMPORTED_MODULE_2__["initAdmin"])(socket);
   socket.emit('join', 'adminRoom');
 }
 

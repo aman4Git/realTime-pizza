@@ -106,7 +106,6 @@ updateStatus(order);
 //Client side socket connection
 
 let socket = io();
-initAdmin(socket);
 
 //join room by name (name: order_dkfsf87897kjdfjj).
 //Check if order exists
@@ -118,7 +117,7 @@ if (order) {
 let adminAreaPath = window.location.pathname;
 
 if(adminAreaPath.includes('admin')){
-    
+    initAdmin(socket);
     socket.emit('join', 'adminRoom');
 }
 
