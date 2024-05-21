@@ -6,7 +6,7 @@ function statusController() {
             try {
                 await Order.updateOne({_id: req.body.orderId}, {status: req.body.status});
 
-                //Event emitter
+                //Event emitter for socket.io events
                 const eventEmitter = req.app.get('eventEmitter');
                 eventEmitter.emit('orderUpdated', {id: req.body.orderId, status: req.body.status});
 
