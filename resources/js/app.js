@@ -70,8 +70,14 @@ let time= document.createElement('small');
 
 
 function updateStatus(order){
-    let stepCompleted = true;
 
+    //Remove old classes
+    statuses.forEach((status) =>{
+        status.classList.remove('step-completed');
+        status.classList.remove('current');
+    })
+
+    let stepCompleted = true;
     statuses.forEach((status) =>{
         let dataProp = status.dataset.status
 
@@ -98,3 +104,36 @@ function updateStatus(order){
 }
 
 updateStatus(order);
+
+//Client side socket connection
+
+let socket = io();
+
+//join room by name (name: order_dkfsf87897kjdfjj).
+//Check if order exists
+if (order) {
+    socket.emit('join', `order_${order._id}`);
+};
+
+socket.on('orderUpdated', (data) =>{
+    //make a copy of order
+    const updatedOrder = { ...order };
+
+    //update time of order to current time
+    updatedOrder.updatedAt = moment().format();
+
+    //update status of order
+    updatedOrder.status = data.status;
+
+    //Update status
+    updateStatus(updatedOrder);
+
+    //Success messages pop up
+    new Noty({
+        type: "success",
+        timeout: 1000,
+        progressBar: false,
+        closeWith: ['click'],
+        text: "Order updated!"
+      }).show();
+})

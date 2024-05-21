@@ -6,11 +6,14 @@ function statusController() {
             try {
                 await Order.updateOne({_id: req.body.orderId}, {status: req.body.status});
 
-                // If no errors
+                //Event emitter
+                const eventEmitter = req.app.get('eventEmitter');
+                eventEmitter.emit('orderUpdated', {id: req.body.orderId, status: req.body.status});
+
+                //return redirect to admin order page
                 return res.redirect('/admin/orders');
             } catch (err) {
-                
-                // If any errors
+
                 return res.redirect('/admin/orders');
             }
         }
