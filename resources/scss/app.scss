@@ -203,3 +203,9 @@ section.status{
     font-size : 14px;
     margin-top: 8px
 }
+
+@media(max-width:1060px){
+    .container{
+        max-width: 90%;
+    }
+}
