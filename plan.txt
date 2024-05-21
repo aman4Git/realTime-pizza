@@ -56,10 +56,10 @@
 [.] Place order functionality. ✅
 [.] Change order status. ✅
 [.] Create order single page with status. ✅
-[.] Order tracker.
-	- Dependencies moment
-[.] Socket connection.
-	- Dependencies socket.io
+[.] Order tracker. ✅
+	- Dependencies moment ✅
+[.] Socket connection. ✅
+	- Dependencies socket.io. ✅
 [.] Build project for deployment.
 [.] Deploy project on live server.
 

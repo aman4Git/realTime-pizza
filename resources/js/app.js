@@ -54,8 +54,6 @@ if(alertMsg){
     }, 2000);
 }
 
-initAdmin();
-
 //Change order status
 //Get statuses
 let statuses = document.querySelectorAll('.status-line');
@@ -108,6 +106,7 @@ updateStatus(order);
 //Client side socket connection
 
 let socket = io();
+initAdmin(socket);
 
 //join room by name (name: order_dkfsf87897kjdfjj).
 //Check if order exists
@@ -115,6 +114,15 @@ if (order) {
     socket.emit('join', `order_${order._id}`);
 };
 
+//Add new orders in admin order list page in real time
+let adminAreaPath = window.location.pathname;
+
+if(adminAreaPath.includes('admin')){
+    
+    socket.emit('join', 'adminRoom');
+}
+
+//Listen for order updated event
 socket.on('orderUpdated', (data) =>{
     //make a copy of order
     const updatedOrder = { ...order };
@@ -135,5 +143,5 @@ socket.on('orderUpdated', (data) =>{
         progressBar: false,
         closeWith: ['click'],
         text: "Order updated!"
-      }).show();
+    }).show();
 })
