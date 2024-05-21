@@ -461,3 +461,9 @@ section.status {
   }
 }
 
+@media (max-width: 768px) {
+  .status-box ul li span:before {
+    font-size: 34px;
+  }
+}
+
