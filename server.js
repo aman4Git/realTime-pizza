@@ -79,6 +79,11 @@ app.set('view engine', 'ejs');
 //Call Routes.
 require('./routes/web')(app);
 
+//404 routes
+app.use((req, res) =>{
+    res.status(404).render('errors/404');
+});
+
 //Start the server
 const server = app.listen(PORT, () => {
     console.log(`Server listening on localhost:${PORT}`);
